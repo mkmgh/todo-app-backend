@@ -69,7 +69,7 @@ let signUpFunction = (req, res) => {
                             } else {
                                 let newUserObj = newUser.toObject();
                                 mailer.autoEmail(newUserObj.email, `<h2>Hi ${newUser.firstName} ${newUser.lastName}, Welcome to TO-DO Application</h2><br>
-                                <a href='http://localhost:4200/email-verify/${newUser.userId}'>Click here to verify yourself</a><br>`, "Email Address Verification");
+                                <a href='todoapp.emayurm.in.net/email-verify/${newUser.userId}'>Click here to verify yourself</a><br>`, "Email Address Verification");
                                 resolve(newUserObj)
                             }
                         })
@@ -317,7 +317,7 @@ let forgotPassword = (req, res) => {
             }
             else {
                 logger.info("user found", "userController: findUser()", 10);
-                mailer.autoEmail(req.body.email, `<a href='http://localhost:4200/reset-password/${userDetails.userId}'>click here to reset password</a>`, 'Reset Password Request');
+                mailer.autoEmail(req.body.email, `<a href='todoapp.emayurm.in.net/reset-password/${userDetails.userId}'>click here to reset password</a>`, 'Reset Password Request');
                 let apiResponse = response.generate(false, "User Details Found", 200, "Mail sent successfully");
                 res.send(apiResponse);
             }
