@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from chatapi.edwisor.com/eventDoc/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 14 May 2018 07:42:04 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+    <title>Events Doc</title>
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+    <!-- <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/> -->
+    <link href="favicon.ico" rel="icon" type="image/x-icon">
+    <style>
+    /* Custom Stylesheet */
+
+    .icon-block {
+        padding: 0 15px;
+    }
+
+    .icon-block .material-icons {
+        font-size: inherit;
+    }
+    </style>
+</head>
+
+<body>
+   
+    <div class="section no-pad-bot" style="margin-bottom: 0px" id="index-banner">
+        <div class="container" style="width: 80%">
+          <p style="font-size: 2em; font-weight: 540; text-align: center">Events Documentation</p>
+            <div class="row">
+
+                <div class="col hide-on-small-only m3 l2">
+                    <ul class="section table-of-contents" style="position: fixed; overflow-y:scroll; height:70vh">
+                        <li><a href="#listen" style="color: #03a9f4; font-size: 1.2em; font-weight: bold">Listening Events</a></li>
+                        <li><a href="#verifyUser">verify-user</a></li>
+                        <li><a href="#usersList">onlineUsersTodo</a></li>
+
+                        <li><a href="#createListRes">createList-res</a></li>
+                        <li><a href="#deleteListRes">deleteList-res</a></li>
+                        <li><a href="#updateListRes">updateList-res</a></li>
+
+                        <li><a href="#createItemRes">createItem-res</a></li>
+                        <li><a href="#deleteItemRes">deleteItem-res</a></li>
+                        <li><a href="#updateItemRes">updateItem-res</a></li>
+                        <li><a href="#markDoneItemRes">markDoneItem-res</a></li>
+                        <li><a href="#markOpenItemRes">markOpenItem-res</a></li>
+                        <li><a href="#undoItemRes">undoItem-res</a></li>
+
+                        <li><a href="#createSubItemRes">createSubItem-res</a></li>
+                        <li><a href="#deleteSubItemRes">deleteSubItem-res</a></li>
+                        <li><a href="#updateSubItemRes">updateSubItem-res</a></li>
+                        <li><a href="#markDoneSubItemRes">markDoneSubItem-res</a></li>
+                        <li><a href="#markOpenSubItemRes">markOpenSubItem-res</a></li>
+                        <li><a href="#undoSubItemRes">undoSubItem-res</a></li>
+
+                        <li><a href="#clearUndosRes">clearUndos-res</a></li>
+                        
+
+
+                        <li><a href="#reqAlreadySent">reqAlreadySent</a></li>
+                        <li><a href="#alreadyFriend">alreadyFriend</a></li>
+                        <li><a href="#savereq">savereq</a></li>
+                        <li><a href="#rejecting">rejecting</a></li>
+                        <li><a href="#accepting">accepting</a></li>
+                        <li><a href="#removed">removed</a></li>
+                        <li><a href="#userId">userId</a></li>
+
+
+
+                        <li><a href="#emit" style="color: #03a9f4; font-size: 1.2em; font-weight: bold">Emitting Events</a></li>
+                        <li><a href="#set-user">set-user</a></li>
+                        <li><a href="#createList">createList</a></li>
+                        <li><a href="#deleteList">deleteList</a></li>
+                        <li><a href="#updateList">updateList</a></li>
+
+                        <li><a href="#createItem">createItem</a></li>
+                        <li><a href="#deleteItem">deleteItem</a></li>
+                        <li><a href="#updateItem">updateItem</a></li>
+                        <li><a href="#markDoneItem">markDoneItem</a></li>
+                        <li><a href="#markOpenItem">markOpenItem</a></li>
+
+                        <li><a href="#createSubItem">createSubItem</a></li>
+                        <li><a href="#deleteSubItem">deleteSubItem</a></li>
+                        <li><a href="#updateSubItem">updateSubItem</a></li>
+                        <li><a href="#markDoneSubItem">markDoneSubItem</a></li>
+                        <li><a href="#markOpenSubItem">markOpenSubItem</a></li>
+
+
+                        <li><a href="#request">request</a></li>
+                        <li><a href="#reject">reject</a></li>
+                        <li><a href="#accept">accept</a></li>
+                        <li><a href="#unfriend">unfriend</a></li>
+
+                    </ul>
+                </div>
+
+                <div class="col s12 m9 l10"  style="padding-left:50px">
+
+                    <div id="listen" class="section scrollspy"></div>
+                    <h4>Events to listen</h4>
+
+                    <div id="verifyUser" class="section scrollspy">
+                        <h5>verifyUser event</h5>
+                        This event <span style="font-weight: 600">("verify-user")</span> has to be listened on the user's end to verify user authentication.<br/>
+                        user will only be set as online user after verification of authentication token.<br/>
+                    </div>
+                    <div id="usersList" class="section scrollspy">
+                        <h5>onlineUsersTodo event</h5>
+                        This event <span style="font-weight: 600">("onlineUsersTodo")</span> has to be listened on the user's end to identify all available users that are currently online.<br/>
+                      
+                        The output will be an object, object has key as userId and value as full name.
+                    </div>
+
+                    <div id="createListRes" class="section scrollspy">
+                            <h5>createList-res event</h5>                           
+                            This event <span style="font-weight: 600">("createList-res")</span> has to be listened to get notification regarding List creation by any user to all users.<br>
+                    </div>                    
+
+                    <div id="deleteListRes" class="section scrollspy">
+                            <h5>deleteList-res event</h5>
+                            This event <span style="font-weight: 600">("deleteList-res")</span> has to be listened to get notification regarding list deletion by any user to all users.<br>
+                    </div>                    
+
+                    <div id="updateListRes" class="section scrollspy">
+                            <h5>updateList-res event</h5>
+                            This event <span style="font-weight: 600">("updateList-res")</span> has to be listened to get notification regarding list updation by any user to all users.<br>
+                    </div>                    
+
+
+
+                    <div id="createItemRes" class="section scrollspy">
+                            <h5>createItem-res event</h5>                           
+                            This event <span style="font-weight: 600">("createItem-res")</span> has to be listened to get notification regarding Item creation by any user to all users.<br>
+                    </div>                    
+
+                    <div id="deleteItemRes" class="section scrollspy">
+                            <h5>deleteItem-res event</h5>
+                            This event <span style="font-weight: 600">("deleteItem-res")</span> has to be listened to get notification regarding Item deletion by any user to all users.<br>
+                    </div>                    
+
+                    <div id="updateItemRes" class="section scrollspy">
+                            <h5>updateItem-res event</h5>
+                            This event <span style="font-weight: 600">("updateItem-res")</span> has to be listened to get notification regarding Item updation by any user to all users.<br>
+                    </div>
+
+                    <div id="markDoneItemRes" class="section scrollspy">
+                            <h5>markDoneItem-res event</h5>
+                            This event <span style="font-weight: 600">("markDoneItem-res")</span> has to be listened to get notification to all users, if any user mark item as DONE.<br>
+                    </div>                    
+
+                    <div id="markOpenItemRes" class="section scrollspy">
+                            <h5>markOpenItem-res event</h5>
+                            This event <span style="font-weight: 600">("markOpenItem-res")</span> has to be listened to get notification to all users, if any user mark item as OPEN.<br>
+                    </div>
+
+
+                    <div id="undoItemRes" class="section scrollspy">
+                        <h5>undoItem-res event</h5>
+                        This event <span style="font-weight: 600">("undoItem-res")</span> has to be listened to get notification to all users, if any undo action performed on item.<br>
+                    </div>
+
+
+
+
+                    <div id="createSubItemRes" class="section scrollspy">
+                            <h5>createSubItem-res event</h5>                           
+                            This event <span style="font-weight: 600">("createSubItem-res")</span> has to be listened to get notification regarding Sub-Item creation by any user to all users.<br>
+                    </div>                    
+
+                    <div id="deleteSubItemRes" class="section scrollspy">
+                            <h5>deleteSubItem-res event</h5>
+                            This event <span style="font-weight: 600">("deleteSubItem-res")</span> has to be listened to get notification regarding Sub-Item deletion by any user to all users.<br>
+                    </div>                    
+
+                    <div id="updateSubItemRes" class="section scrollspy">
+                            <h5>updateSubItem-res event</h5>
+                            This event <span style="font-weight: 600">("updateSubItem-res")</span> has to be listened to get notification regarding Sub-Item updation by any user to all users.<br>
+                    </div>
+
+                    <div id="markDoneSubItemRes" class="section scrollspy">
+                            <h5>markDoneSubItem-res event</h5>
+                            This event <span style="font-weight: 600">("markDoneSubItem-res")</span> has to be listened to get notification to all users, if any user mark sub-item as DONE.<br>
+                    </div>                    
+
+                    <div id="markOpenSubItemRes" class="section scrollspy">
+                            <h5>markOpenSubItem-res event</h5>
+                            This event <span style="font-weight: 600">("markOpenSubItem-res")</span> has to be listened to get notification to all users, if any user mark sub-item as OPEN.<br>
+                    </div>
+
+
+                    <div id="undoSubItemRes" class="section scrollspy">
+                        <h5>undoSubItem-res event</h5>
+                        This event <span style="font-weight: 600">("undoSubItem-res")</span> has to be listened to get notification to all users, if any undo action performed on sub-item.<br>
+                    </div>
+
+
+                    <div id="clearUndosRes" class="section scrollspy">
+                        <h5>clearUndos-res event</h5>
+                        This event <span style="font-weight: 600">("clearUndos-res")</span> has to be listened to get notification to all users regarding undos clear OR delete.<br>
+                    </div>
+
+
+
+
+                    <div id="reqAlreadySent" class="section scrollspy">
+                            <h5>reqAlreadySent event</h5>
+                            This event <span style="font-weight: 600">("reqAlreadySent")</span> has to be listened to get notification himself/herself, during second attempt of request, if user has already sent friend request to perticular user.<br>
+                    </div>
+
+                    <div id="alreadyFriend" class="section scrollspy">
+                            <h5>alreadyFriend event</h5>
+                            This event <span style="font-weight: 600">("alreadyFriend")</span> has to be listened to get notification  himself/herself, during second attempt of request, if user has already friend with that perticular user.<br>
+                    </div>                    
+
+                    <div id="savereq" class="section scrollspy">
+                            <h5>savereq event</h5>
+                            This event <span style="font-weight: 600">("savereq")</span> has to be listened to get notification to users, if friend request sent successfully.<br>
+                    </div>
+
+
+                    <div id="rejecting" class="section scrollspy">
+                            <h5>rejecting event</h5>
+                            This event <span style="font-weight: 600">("rejecting")</span> has to be listened to get notification  himself/herself, after rejecting the friend request of user.<br>
+                    </div>
+
+                    <div id="accepting" class="section scrollspy">
+                            <h5>accepting event</h5>
+                            This event <span style="font-weight: 600">("rejecting")</span> has to be listened to get notification himself/herself, after accepting the friend request of user.<br>
+                    </div>
+
+                    <div id="removed" class="section scrollspy">
+                            <h5>removed event</h5>
+                            This event <span style="font-weight: 600">("removed")</span> has to be listened to get notification himself/herself, after removing/unfriend the friend from friend list.<br>
+                    </div>
+
+                    <div id="userId" class="section scrollspy">
+                            <h5>userId event</h5>
+                            <b>This event's name is actually dynamic and refers to the userId of the logged in user.</b>
+                            This event <span style="font-weight: 600">("userId")</span>  has to be listened to get the updates from Admin user.<br>
+                            Example output it as follows:
+                            <pre>
+                                    {
+                                        userId: 'unique id of User',
+                                        data: 'data from user',
+                                    }
+                            </pre>
+                    </div>
+
+
+
+
+                    <div id="emit" class="section scrollspy"></div>
+                    <h4>Events to emit</h4>
+
+                    <div id="set-user" class="section scrollspy">
+                        <h5>set-user event</h5>
+                        This event <span style="font-weight: 600">("set-user")</span> has to be emitted when a user comes online.<br/>
+                        User can only be set as online only after verification of authentication token. Which you have pass here.
+                        The following data has to be emitted:<br/>
+                        authentication token
+                    </div>
+
+                    <div id="createList" class="section scrollspy">
+                            <h5>createList event</h5>                           
+                            This event <span style="font-weight: 600">("createList")</span> has to be emit after creating New List<br>
+                    </div>                    
+
+                    <div id="deleteList" class="section scrollspy">
+                            <h5>deleteList event</h5>
+                            This event <span style="font-weight: 600">("deleteList")</span> has to be emit after deleting List.<br>
+                    </div>                    
+
+                    <div id="updateList" class="section scrollspy">
+                            <h5>updateList event</h5>
+                            This event <span style="font-weight: 600">("updateList")</span> has to be emit after updating List.<br>
+                    </div>                    
+
+
+                    <div id="createItem" class="section scrollspy">
+                            <h5>createItem event</h5>                           
+                            This event <span style="font-weight: 600">("createItem")</span> has to be emit after creating New Item<br>
+                    </div>                    
+
+                    <div id="deleteItem" class="section scrollspy">
+                            <h5>deleteItem event</h5>
+                            This event <span style="font-weight: 600">("deleteItem")</span> has to be emit after deleting Item.<br>
+                    </div>                    
+
+                    <div id="updateItem" class="section scrollspy">
+                            <h5>updateItem event</h5>
+                            This event <span style="font-weight: 600">("updateItem")</span> has to be emit after updating Item.<br>
+                    </div>                    
+
+                    <div id="markDoneItem" class="section scrollspy">
+                            <h5>markDoneItem event</h5>
+                            This event <span style="font-weight: 600">("markDoneItem")</span> has to be emit after doing Item "Mark As Done".<br>
+                    </div>                    
+
+                    <div id="markOpenItem" class="section scrollspy">
+                            <h5>markOpenItem event</h5>
+                            This event <span style="font-weight: 600">("markOpenItem")</span> has to be emit after doing Item "Mark As Open".<br>
+                    </div>
+
+
+                    <div id="createSubItem" class="section scrollspy">
+                            <h5>createSubItem event</h5>                           
+                            This event <span style="font-weight: 600">("createSubItem")</span> has to be emit after creating New Sub-Item<br>
+                    </div>                    
+
+                    <div id="deleteSubItem" class="section scrollspy">
+                            <h5>deleteSubItem event</h5>
+                            This event <span style="font-weight: 600">("deleteSubItem")</span> has to be emit after deleting Sub-Item.<br>
+                    </div>                    
+
+                    <div id="updateSubItem" class="section scrollspy">
+                            <h5>updateSubItem event</h5>
+                            This event <span style="font-weight: 600">("updateSubItem")</span> has to be emit after updating Sub-Item.<br>
+                    </div>                    
+
+                    <div id="markDoneSubItem" class="section scrollspy">
+                            <h5>markDoneSubItem event</h5>
+                            This event <span style="font-weight: 600">("markDoneSubItem")</span> has to be emit after doing Sub-Item "Mark As Done".<br>
+                    </div>                    
+
+                    <div id="markOpenSubItem" class="section scrollspy">
+                            <h5>markOpenSubItem event</h5>
+                            This event <span style="font-weight: 600">("markOpenSubItem")</span> has to be emit after doing Sub-Item "Mark As Open".<br>
+                    </div>
+
+
+                    <div id="request" class="section scrollspy">
+                            <h5>request event</h5>                           
+                            This event <span style="font-weight: 600">("request")</span> has to be emit after sending friend request to perticular user.<br>
+                    </div>                    
+
+                    <div id="reject" class="section scrollspy">
+                            <h5>reject event</h5>
+                            This event <span style="font-weight: 600">("reject")</span> has to be emit after rejecting friend request by perticular user.<br>
+                    </div>                    
+
+                    <div id="accept" class="section scrollspy">
+                            <h5>accept event</h5>
+                            This event <span style="font-weight: 600">("accept")</span> has to be emit after accepting friend request of perticular user.<br>
+                    </div>                    
+
+                    <div id="unfriend" class="section scrollspy">
+                            <h5>unfriend event</h5>
+                            This event <span style="font-weight: 600">("unfriend")</span> has to be emit after getting unfriend(removed from friend list) by perticular user.<br>
+                    </div>                    
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+<br/><br/><br/><br/>
+
+    <footer style="background-color: black; min-height: 3em">
+        <center style="color: white; margin: auto; padding-top: 1em;">Copyright ©<span>2018</span> ToDo Application</center>
+    </footer>
+
+    <!--  Scripts-->
+    <script src="code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('.scrollspy').scrollSpy();
+    });
+    </script>
+    <script>
+    (function($) {
+        $(function() {
+
+            $('.button-collapse').sideNav();
+
+        }); // end of document ready
+    })(jQuery); // end of jQuery name space
+    </script>
+</body>
+
+
+<!-- Mirrored from chatapi.edwisor.com/eventDoc/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 14 May 2018 07:42:06 GMT -->
+</html>
